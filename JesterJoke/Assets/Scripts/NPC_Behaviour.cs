@@ -52,6 +52,11 @@ public class NPC_Behaviour : MonoBehaviour
         {
             NPC_Going_For_A_Celebration();
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Game_Over_Animations();
+        }
     }
 
     public void NPC_Look_At_King()
@@ -87,5 +92,10 @@ public class NPC_Behaviour : MonoBehaviour
         {
             anim.SetTrigger("Bamboozled3");
         }
+    }
+
+    public void Game_Over_Animations()
+    {
+        anim.SetTrigger("Game_Over");
     }
 }
