@@ -5788,7 +5788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtMshComp: {fileID: 1542172991}
-  refreshSpeed: 0
+  refreshSpeed: 0.02
 --- !u!114 &1542172991
 MonoBehaviour:
   m_ObjectHideFlags: 0

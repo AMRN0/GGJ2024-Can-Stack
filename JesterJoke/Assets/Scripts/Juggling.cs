@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Juggling : MonoBehaviour
 {
@@ -10,21 +11,56 @@ public class Juggling : MonoBehaviour
     bool leftActive, rightActive;
 
 
-
+    float promtTime = 0.5f;
 
 
     void ActivateLeft()
     {
         leftActive = true;
         leftButton.SetActive(true);
+        leftTimer = Time.time + promtTime;
+        leftButton.GetComponent<Image>().color = Color.white;
+
     }
     void ActivateRight()
     {
         rightActive = true;
         rightButton.SetActive(true);
+        rightTimer = Time.time + promtTime;
+        rightButton.GetComponent<Image>().color = Color.white;
+    }
+
+    void Deactivate(bool isLeft)
+    {
+        if(isLeft)
+        {
+            leftActive = false;
+            leftButton.SetActive(false);
+        }
+        else
+        {
+            rightActive = false;
+            rightButton.SetActive(false);
+        }
     }
 
 
+    async void JugglingMiss(bool isLeft)
+    {
+        if(isLeft)
+        {
+            leftButton.GetComponent<Image>().color = Color.red;
+            await Task.Delay(500);
+            Deactivate(true);
+        }
+        else
+        {
+            rightButton.GetComponent<Image>().color = Color.red;
+            await Task.Delay(500);
+            Deactivate(false);
+
+        }
+    }
 
 
 
@@ -38,21 +74,41 @@ public class Juggling : MonoBehaviour
 
     }
 
+    float leftTimer, rightTimer;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+
+        if(leftActive)
+        {
+            if (leftTimer <= Time.time)
+            {
+                JugglingMiss(true);
+            }
+        }
+
+        if (rightActive)
+        {
+            if (rightTimer <= Time.time)
+            {
+                JugglingMiss(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
         {
             if(leftActive)
             {
-                leftButton.SetActive(false);
+                Deactivate(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (rightButton)
             {
-                rightButton.SetActive(false);
+                Deactivate(false);
+
             }
         }
     }
