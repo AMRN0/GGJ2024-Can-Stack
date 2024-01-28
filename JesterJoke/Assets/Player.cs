@@ -10,10 +10,12 @@ public class Player : MonoBehaviour
     public Image fill;
     public int progress;
 
+    public bool performing;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        performing = false;
     }
 
     // Update is called once per frame

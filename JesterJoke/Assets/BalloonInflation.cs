@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BalloonInflation : MonoBehaviour
 {
+    public bool performing;
+
     Vector3 inflationChange = new(0.3f, 0.3f, 0.3f);
     Vector3 deflationChange = new(0.1f, 0.1f, 0.1f);
 
@@ -17,6 +19,7 @@ public class BalloonInflation : MonoBehaviour
 
     void Start()
     {
+        GameObject.Find("Main Camera").GetComponent<Player>().performing = true;
         transform.localScale = new(0.5f, 0.5f, 0.5f);
         //transform.position = Vector3.zero;
     }
@@ -73,6 +76,7 @@ public class BalloonInflation : MonoBehaviour
             win = true;
             Instantiate(confettiPrefab, new Vector3(-1, 2, 0), Quaternion.identity);
             GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().winTrigger();
+            GameObject.Find("Main Camera").GetComponent<Player>().performing = false;
             gameObject.SetActive(false);
         }
     }
@@ -81,6 +85,7 @@ public class BalloonInflation : MonoBehaviour
     {
         win = false;
         GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().loseTrigger();
+        GameObject.Find("Main Camera").GetComponent<Player>().performing = false;
         gameObject.SetActive(false);
     }
 

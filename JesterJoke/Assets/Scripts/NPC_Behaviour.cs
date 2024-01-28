@@ -22,6 +22,16 @@ public class NPC_Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("Main Camera").GetComponent<Player>().performing == true)
+        {
+            anim.SetBool("Performing", true);
+        }
+
+        if (GameObject.Find("Main Camera").GetComponent<Player>().performing == false)
+        {
+            anim.SetBool("Performing", false);
+        }
+
         anim.SetFloat("NPC_Type", NPC_Type);
 
         if(Input.GetKeyDown(KeyCode.L))
