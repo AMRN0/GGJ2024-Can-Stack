@@ -35,39 +35,39 @@ public class NPC_Behaviour : MonoBehaviour
 
         anim.SetFloat("NPC_Type", NPC_Type);
 
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            NPC_Look_At_King();
-        }
+        //if(Input.GetKeyDown(KeyCode.L))
+        //{
+        //    NPC_Look_At_King();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            if(!isExecutioner)
-            {
-                NPC_Extremely_Shocked_At_What_They_Have_Just_Seen();
-            }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    if(!isExecutioner)
+        //    {
+        //        NPC_Extremely_Shocked_At_What_They_Have_Just_Seen();
+        //    }
 
-            if (isExecutioner)
-            {
-                Executioner_Extremely_Shocked_At_What_They_Have_Just_Seen();
-                executioner_Animation_Number += 1;
-                if(executioner_Animation_Number > 3)
-                {
-                    executioner_Animation_Number = 1;
-                }
-            }
-        }
+        //    if (isExecutioner)
+        //    {
+        //        Executioner_Extremely_Shocked_At_What_They_Have_Just_Seen();
+        //        executioner_Animation_Number += 1;
+        //        if(executioner_Animation_Number > 3)
+        //        {
+        //            executioner_Animation_Number = 1;
+        //        }
+        //    }
+        //}
 
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            NPC_Going_For_A_Celebration();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    NPC_Going_For_A_Celebration();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Game_Over_Animations();
-        }
+        //if (Input.GetKeyDown(KeyCode.G))
+        //{
+        //    Game_Over_Animations();
+        //}
     }
 
     public void NPC_Look_At_King()

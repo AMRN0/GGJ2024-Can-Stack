@@ -9,7 +9,7 @@ public class BalloonInflation : MonoBehaviour
     Vector3 inflationChange = new(7.5f, 7.5f, 7.5f);
     Vector3 deflationChange = new(0.2f, 0.2f, 0.2f);
 
-    [SerializeField] float winCondition = 3.0f;
+    [SerializeField] float winCondition = 2.0f;
 
     bool inflate = false;
 
