@@ -12,7 +12,7 @@ public class King_Man : MonoBehaviour
     public int selectedGame;
 
     public GameObject balloonPrefab;
-
+    public GameObject JuggleGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,8 @@ public class King_Man : MonoBehaviour
 
         if (selectedGame == 1)
         {
+            JuggleGame.SetActive(true);
+            JuggleGame.GetComponentInChildren<Juggling>().StartMinigame();
             //Instantiate(balloonPrefab, new Vector3(0, 2, 0), Quaternion.identity);
         }
 
