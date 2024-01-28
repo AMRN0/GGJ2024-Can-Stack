@@ -16,13 +16,16 @@ public class Juggling : MonoBehaviour
     int fails = 0;
     int wins = 0;
 
+    public GameObject JuggleMinigameParent;
 
     //Call to start minigame
     public void StartMinigame()
     {
         ResetMinigame();
-        ActivateButtons();
+        //ActivateButtons();
         running = true;
+        GameObject.Find("Main Camera").GetComponent<Player>().performing = true;
+
     }
 
 
@@ -32,6 +35,9 @@ public class Juggling : MonoBehaviour
         running = false;
         Debug.Log("Failed Minigame");
         //sad king
+        GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().loseTrigger();
+        GameObject.Find("Main Camera").GetComponent<Player>().performing = false;
+        JuggleMinigameParent.SetActive(false);
     }
 
     //if minigame won
@@ -40,6 +46,10 @@ public class Juggling : MonoBehaviour
         running = false;
         Debug.Log("Passed Minigame");
         //he he hu hah
+        GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().winTrigger();
+        GameObject.Find("Main Camera").GetComponent<Player>().performing = false;
+        JuggleMinigameParent.SetActive(false);
+
 
     }
 
