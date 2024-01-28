@@ -6,6 +6,8 @@ public class NPC_Manager : MonoBehaviour
 {
     public GameObject[] NPCs;
 
+    public GameObject confettiCannon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,11 @@ public class NPC_Manager : MonoBehaviour
         if (GameObject.Find("Main Camera").GetComponent<Player>().progress <= 0)
         {
             gameOverTrigger();
+        }
+
+        if (GameObject.Find("Main Camera").GetComponent<Player>().progress >= 100)
+        {
+            gameWinTriggers();
         }
     }
 
@@ -73,6 +80,25 @@ public class NPC_Manager : MonoBehaviour
         foreach (GameObject person in NPCs)
         {
             person.GetComponent<Animator>().SetTrigger("Game_Over");
+        }
+    }
+
+    public void gameWinTriggers()
+    {
+        confettiCannon.SetActive(true);
+
+        foreach (GameObject person in NPCs)
+        {
+            person.GetComponent<Animator>().SetTrigger("Game_Win");
+        }
+    }
+
+    public void lookAtMe()
+    {
+        foreach (GameObject person in NPCs)
+        {
+            person.GetComponent<Animator>().SetTrigger("Look_At_King");
+            person.GetComponent<Animator>().SetTrigger("Erm_Acctually");
         }
     }
 }

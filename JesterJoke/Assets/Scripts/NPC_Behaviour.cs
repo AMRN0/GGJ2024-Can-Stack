@@ -9,6 +9,7 @@ public class NPC_Behaviour : MonoBehaviour
     int randomInt;
 
     public bool isExecutioner;
+    public bool isKing;
     public int executioner_Animation_Number = 1;
 
     // Start is called before the first frame update
@@ -107,5 +108,10 @@ public class NPC_Behaviour : MonoBehaviour
     public void Game_Over_Animations()
     {
         anim.SetTrigger("Game_Over");
+    }
+
+    public void lookAtMe()
+    {
+        //GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().lookAtMe();
     }
 }

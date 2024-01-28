@@ -10,6 +10,8 @@ public class King_Decide_Game : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().lookAtMe();
+
         randomGame = Random.Range(1, 3);
         while(previousInt == randomGame)
         {
