@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class King_Man : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class King_Man : MonoBehaviour
     public GameObject textBox;
     public GameObject jugglingIcon;
     public GameObject balloonsIcon;
+    public int selectedGame;
+
+    public GameObject balloonPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +33,20 @@ public class King_Man : MonoBehaviour
     public void deRenderTextBox()
     {
         canvasText.SetActive(false);
+
+        if (selectedGame == 1)
+        {
+            //Instantiate(balloonPrefab, new Vector3(0, 2, 0), Quaternion.identity);
+        }
+
+        if (selectedGame == 2)
+        {
+            Instantiate(balloonPrefab, new Vector3(-1, 2, 0), Quaternion.identity);
+        }
+    }
+
+    public void loadGameOver()
+    {
+        SceneManager.LoadScene("Game_Over_Scene");
     }
 }

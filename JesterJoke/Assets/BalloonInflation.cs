@@ -11,19 +11,21 @@ public class BalloonInflation : MonoBehaviour
 
     bool inflate = false;
 
+    public GameObject confettiPrefab;
+
     [HideInInspector] public static bool win = false;
 
     void Start()
     {
         transform.localScale = new(0.5f, 0.5f, 0.5f);
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
     }
 
     void Update()
     {
-        if (transform.localScale.x <= 0.5f)
+        if (transform.localScale.x <= 0.25f)
         {
-            transform.localScale = new(0.5f, 0.5f, 0.5f);
+            LoseCondition();
         }
 
         CheckInput();
@@ -40,16 +42,18 @@ public class BalloonInflation : MonoBehaviour
         if (inflate)
         {
             this.transform.localScale += inflationChange * Time.deltaTime;
-            transform.position = Vector3.zero;
+            //transform.position = Vector3.zero;
             inflate = false;
         }
         else
         {
-            if (transform.localScale.x > 0.5f)
-            {
-                this.transform.localScale -= deflationChange * Time.deltaTime;
-                transform.position = Vector3.zero;
-            }
+            //if (transform.localScale.x > 0.5f)
+            //{
+            //    this.transform.localScale -= deflationChange * Time.deltaTime;
+            //    transform.position = Vector3.zero;
+            //}
+            this.transform.localScale -= deflationChange * Time.deltaTime;
+            //transform.position = Vector3.zero;
         }
     }
 
@@ -67,6 +71,8 @@ public class BalloonInflation : MonoBehaviour
         if (transform.localScale.x > winCondition)
         {
             win = true;
+            Instantiate(confettiPrefab, new Vector3(-1, 2, 0), Quaternion.identity);
+            GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().winTrigger();
             gameObject.SetActive(false);
         }
     }
@@ -74,6 +80,7 @@ public class BalloonInflation : MonoBehaviour
     void LoseCondition()
     {
         win = false;
+        GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().loseTrigger();
         gameObject.SetActive(false);
     }
 
@@ -82,6 +89,6 @@ public class BalloonInflation : MonoBehaviour
         inflationChange = new(0.3f, 0.3f, 0.3f);
         deflationChange = new(0.1f, 0.1f, 0.1f);
         transform.localScale = new(0.5f, 0.5f, 0.5f);
-        transform.position = Vector3.zero;
+        //transform.position = Vector3.zero;
     }
 }

@@ -26,6 +26,7 @@ public class King_Decide_Game : StateMachineBehaviour
             animator.GetComponent<King_Man>().textBox.SetActive(true);
             animator.GetComponent<King_Man>().jugglingIcon.SetActive(true);
             animator.GetComponent<King_Man>().balloonsIcon.SetActive(false);
+            animator.GetComponent<King_Man>().selectedGame = randomGame;
         }
 
         if (randomGame == 2)
@@ -33,6 +34,7 @@ public class King_Decide_Game : StateMachineBehaviour
             animator.GetComponent<King_Man>().textBox.SetActive(true);
             animator.GetComponent<King_Man>().jugglingIcon.SetActive(false);
             animator.GetComponent<King_Man>().balloonsIcon.SetActive(true);
+            animator.GetComponent<King_Man>().selectedGame = randomGame;
         }
     }
 

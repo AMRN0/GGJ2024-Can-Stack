@@ -9,7 +9,7 @@ public class NPC_Behaviour : MonoBehaviour
     int randomInt;
 
     public bool isExecutioner;
-    int executioner_Animation_Number = 1;
+    public int executioner_Animation_Number = 1;
 
     // Start is called before the first frame update
     void Start()
