@@ -6,10 +6,10 @@ public class BalloonInflation : MonoBehaviour
 {
     public bool performing;
 
-    Vector3 inflationChange = new(0.3f, 0.3f, 0.3f);
-    Vector3 deflationChange = new(0.1f, 0.1f, 0.1f);
+    Vector3 inflationChange = new(7.5f, 7.5f, 7.5f);
+    Vector3 deflationChange = new(0.2f, 0.2f, 0.2f);
 
-    [SerializeField] float winCondition;
+    [SerializeField] float winCondition = 3.0f;
 
     bool inflate = false;
 
@@ -62,7 +62,7 @@ public class BalloonInflation : MonoBehaviour
 
     private void CheckInput()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             inflate = true;
             print("pressed");
@@ -95,5 +95,7 @@ public class BalloonInflation : MonoBehaviour
         deflationChange = new(0.1f, 0.1f, 0.1f);
         transform.localScale = new(0.5f, 0.5f, 0.5f);
         //transform.position = Vector3.zero;
+        win = false;
+        inflate = false;
     }
 }
