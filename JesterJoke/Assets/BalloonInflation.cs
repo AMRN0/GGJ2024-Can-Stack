@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BalloonInflation : MonoBehaviour
 {
-    Vector3 inflationChange = new(0.3f, 0.3f, 0.3f);
-    Vector3 deflationChange = new(0.1f, 0.1f, 0.1f);
+    Vector3 inflationChange = new(0.35f, 0.35f, 0.35f);
+    Vector3 deflationChange = new(0.01f, 0.01f, 0.01f);
 
-    [SerializeField] float winCondition;
+    [SerializeField] float winCondition = 3.0f;
 
     bool inflate = false;
 
@@ -18,7 +18,7 @@ public class BalloonInflation : MonoBehaviour
         transform.localScale = new(0.5f, 0.5f, 0.5f);
         transform.position = Vector3.zero;
     }
-
+    //cheeseburger
     void Update()
     {
         if (transform.localScale.x <= 0.5f)
@@ -39,7 +39,7 @@ public class BalloonInflation : MonoBehaviour
     {
         if (inflate)
         {
-            this.transform.localScale += inflationChange * Time.deltaTime;
+            this.transform.localScale += inflationChange;// * Time.deltaTime;
             transform.position = Vector3.zero;
             inflate = false;
         }
@@ -47,7 +47,7 @@ public class BalloonInflation : MonoBehaviour
         {
             if (transform.localScale.x > 0.5f)
             {
-                this.transform.localScale -= deflationChange * Time.deltaTime;
+                this.transform.localScale -= deflationChange;// * Time.deltaTime;
                 transform.position = Vector3.zero;
             }
         }
@@ -55,7 +55,7 @@ public class BalloonInflation : MonoBehaviour
 
     private void CheckInput()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             inflate = true;
             print("pressed");
@@ -83,5 +83,7 @@ public class BalloonInflation : MonoBehaviour
         deflationChange = new(0.1f, 0.1f, 0.1f);
         transform.localScale = new(0.5f, 0.5f, 0.5f);
         transform.position = Vector3.zero;
+        inflate = false;
+        win = false;
     }
 }
