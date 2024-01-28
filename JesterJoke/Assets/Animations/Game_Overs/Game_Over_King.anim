@@ -11704,4 +11704,28 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 9.85
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 2c348694baf536b4ab02a3f1bbe82759,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 12.85
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 31b4ef01120e6d14c9f8708e9e1304a3,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 20.35
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0cd467f5363053f40bdb49c6a981406b,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

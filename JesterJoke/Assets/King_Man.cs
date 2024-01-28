@@ -51,4 +51,9 @@ public class King_Man : MonoBehaviour
     {
         SceneManager.LoadScene("Game_Over_Scene");
     }
+
+    public void loadGameWin()
+    {
+        SceneManager.LoadScene("Game_Win");
+    }
 }
