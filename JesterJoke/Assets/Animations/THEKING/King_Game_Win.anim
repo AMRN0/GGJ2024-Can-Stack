@@ -80701,6 +80701,38 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.5833333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0b40e0ffc0912d44f9769bfce6701c28,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.116667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 31b4ef01120e6d14c9f8708e9e1304a3,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.45
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 0b40e0ffc0912d44f9769bfce6701c28,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 8.066667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 2c348694baf536b4ab02a3f1bbe82759,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 10.7
     functionName: loadGameWin
     data: 
