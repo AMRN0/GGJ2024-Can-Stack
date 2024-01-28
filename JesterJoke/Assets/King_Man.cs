@@ -9,10 +9,12 @@ public class King_Man : MonoBehaviour
     public GameObject textBox;
     public GameObject jugglingIcon;
     public GameObject balloonsIcon;
+    public GameObject letterIcon;
     public int selectedGame;
 
     public GameObject balloonPrefab;
     public GameObject JuggleGame;
+    public GameObject letterGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,12 @@ public class King_Man : MonoBehaviour
         if (selectedGame == 2)
         {
             Instantiate(balloonPrefab, new Vector3(-1, 2, 0), Quaternion.identity);
+        }
+
+        if (selectedGame == 3)
+        {
+            letterGame.SetActive(true);
+            letterGame.GetComponentInChildren<WordGame>().StartMinigame();
         }
     }
 

@@ -1752,6 +1752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f6593cb18be704ea09b9a6ae0c8c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashScreens: {fileID: 378992030}
+  splashAnim: {fileID: 1590975283}
 --- !u!4 &291515000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 498044, guid: bea7f070fbbbf4b42b6ed99870cc07cf,

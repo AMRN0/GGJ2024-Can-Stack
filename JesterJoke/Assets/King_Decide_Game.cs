@@ -12,10 +12,10 @@ public class King_Decide_Game : StateMachineBehaviour
     {
         GameObject.Find("NPC_Manager").GetComponent<NPC_Manager>().lookAtMe();
 
-        randomGame = Random.Range(1, 3);
+        randomGame = Random.Range(1, 4);
         while(previousInt == randomGame)
         {
-            randomGame = Random.Range(1, 3);
+            randomGame = Random.Range(1, 4);
         }
         previousInt = randomGame;
     }
@@ -28,6 +28,7 @@ public class King_Decide_Game : StateMachineBehaviour
             animator.GetComponent<King_Man>().textBox.SetActive(true);
             animator.GetComponent<King_Man>().jugglingIcon.SetActive(true);
             animator.GetComponent<King_Man>().balloonsIcon.SetActive(false);
+            animator.GetComponent<King_Man>().letterIcon.SetActive(false);
             animator.GetComponent<King_Man>().selectedGame = randomGame;
         }
 
@@ -36,6 +37,16 @@ public class King_Decide_Game : StateMachineBehaviour
             animator.GetComponent<King_Man>().textBox.SetActive(true);
             animator.GetComponent<King_Man>().jugglingIcon.SetActive(false);
             animator.GetComponent<King_Man>().balloonsIcon.SetActive(true);
+            animator.GetComponent<King_Man>().letterIcon.SetActive(false);
+            animator.GetComponent<King_Man>().selectedGame = randomGame;
+        }
+        if (randomGame == 3)
+        {
+            animator.GetComponent<King_Man>().textBox.SetActive(true);
+            animator.GetComponent<King_Man>().jugglingIcon.SetActive(false);
+            animator.GetComponent<King_Man>().balloonsIcon.SetActive(false);
+            animator.GetComponent<King_Man>().letterIcon.SetActive(true);
+
             animator.GetComponent<King_Man>().selectedGame = randomGame;
         }
     }
@@ -46,6 +57,8 @@ public class King_Decide_Game : StateMachineBehaviour
         animator.GetComponent<King_Man>().textBox.SetActive(false);
         animator.GetComponent<King_Man>().jugglingIcon.SetActive(false);
         animator.GetComponent<King_Man>().balloonsIcon.SetActive(false);
+        animator.GetComponent<King_Man>().letterIcon.SetActive(false);
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -20,7 +20,8 @@ public class WordGame : MonoBehaviour
         //ActivateButtons();
         running = true;
         GameObject.Find("Main Camera").GetComponent<Player>().performing = true;
-
+        letterSelected = string.Empty;
+        ActivateLetters();
     }
 
 
@@ -121,19 +122,26 @@ public class WordGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        letterSelected = string.Empty;
-        ActivateLetters();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        ButtonPress();
-        if(letterActive)
+        if(running)
         {
-            letterText.text = letterSelected;
-            LetterTimeout(false);
+            ButtonPress();
+            if (letterActive)
+            {
+                letterText.text = letterSelected;
+                LetterTimeout(false);
+            }
         }
+        else
+        {
+            WordGameParent.SetActive(false);
+        }
+        
     }
 
     async void ActivateLetters()

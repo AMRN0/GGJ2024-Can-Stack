@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class loadGameScenes : MonoBehaviour
 {
+
+    public GameObject splashScreens;
+    public Animator splashAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,12 @@ public class loadGameScenes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape");
+            splashAnim.StopPlayback();
+            splashScreens.SetActive(false);
+        }
     }
 
     public void loadCutscene()
