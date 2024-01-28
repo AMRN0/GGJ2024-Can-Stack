@@ -57,12 +57,15 @@ public class WordGame : MonoBehaviour
 
     string letterSelected;
     bool letterActive;
+    bool sucess;
     void ShowLetter()
     {
+        letterText.color = Color.black;
         int rand = Random.Range(0, letters.Length);
         letterSelected = letters[rand];
         timer = Time.time + promtTime;
         letterActive = true;
+        sucess = false;
     }
     float promtTime = 2.0f;
     float timer;
@@ -73,6 +76,16 @@ public class WordGame : MonoBehaviour
         {
             letterActive = false;
             letterText.text = string.Empty;
+            Debug.Log("win? " + sucess);
+            if(sucess == false)
+            {
+                fails++;
+                if (fails > 2)
+                {
+                    MinigameFailed();
+                }
+            }
+            
         }
     }
 
@@ -83,8 +96,10 @@ public class WordGame : MonoBehaviour
             if (Input.GetKeyDown(letterSelected))
             {
                 Debug.Log("Correct");
+                letterText.color = Color.green;
                 wins++;
-                if(wins >= 10)
+                sucess = true;
+                if(wins >= 5)
                 {
                     MinigamePassed();
                 }
@@ -94,7 +109,7 @@ public class WordGame : MonoBehaviour
                 LetterTimeout(true);
                 Debug.Log("YOU FOOL");
                 fails++;
-                if(fails > 2)
+                if(fails > 1)
                 {
                     MinigameFailed();
                 }
