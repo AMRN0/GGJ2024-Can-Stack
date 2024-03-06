@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 38a77c59aff6e8d498ca306ab16d36d6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Namdhinggo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 909cdb15d03ef1c498e45c5a72fdf48a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -32,6 +32,10 @@ public class loadGameScenes : MonoBehaviour
 
     public void quitGame()
     {
+#if UNITY_WEBGL
+        SceneManager.LoadScene("Menu");
+#else
         Application.Quit();
+#endif
     }
 }
